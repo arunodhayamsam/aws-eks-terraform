@@ -18,8 +18,8 @@ variable "aws_secrete_key" {
 
 variable "region" {
   description = "AWS region"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "public_key" {
@@ -30,24 +30,24 @@ variable "public_key" {
 
 variable "vpc_cidr" {
   description = "cidr range for VPC"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "pubsub1_cidr" {
   description = "cidr range for subnet"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "pubsub2_cidr" {
   description = "cidr range for subnet"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "pubsub3_cidr" {
   description = "cidr range for subnet"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }

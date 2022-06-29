@@ -27,7 +27,9 @@ resource "aws_eks_cluster" "k8sdemo" {
   role_arn = aws_iam_role.ekscluster.arn
 
   vpc_config {
-    security_group_ids = [aws_security_group.demo.id]
+    #    security_group_ids = [aws_security_group.demo.id]
+    endpoint_private_access = false
+    endpoint_public_access  = true
     subnet_ids = [
       aws_subnet.public-us-east-1a.id,
       aws_subnet.public-us-east-1b.id,

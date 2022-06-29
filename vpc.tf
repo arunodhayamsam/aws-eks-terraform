@@ -23,9 +23,9 @@ resource "aws_subnet" "public-us-east-1a" {
   map_public_ip_on_launch = true
 
   tags = {
-    "Name"                       = "public-us-east-1a"
-    "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned"
+    "Name" = "public-us-east-1a"
+    #   "kubernetes.io/cluster/k8sdemo" = "shared"
+    #    "kubernetes.io/role/elb"    = 1
   }
 }
 
@@ -36,9 +36,9 @@ resource "aws_subnet" "public-us-east-1b" {
   map_public_ip_on_launch = true
 
   tags = {
-    "Name"                       = "public-us-east-1b"
-    "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned"
+    "Name" = "public-us-east-1b"
+    #    "kubernetes.io/cluster/k8sdemo" = "shared"
+    #    "kubernetes.io/role/elb"    = 1
   }
 }
 
@@ -49,9 +49,9 @@ resource "aws_subnet" "public-us-east-1c" {
   map_public_ip_on_launch = true
 
   tags = {
-    "Name"                       = "public-us-east-1c"
-    "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned"
+    "Name" = "public-us-east-1c"
+    #    "kubernetes.io/cluster/k8sdemo" = "shared"
+    #    "kubernetes.io/role/elb"    = 1
   }
 }
 
@@ -87,30 +87,3 @@ resource "aws_route_table_association" "public-us-east-1c" {
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_security_group" "demo" {
-  name        = "ekssg"
-  description = "allow all traffic"
-  vpc_id      = aws_vpc.eks_vpc.id
-
-  ingress {
-    description = "allow all traffic"
-    from_port   = "0"
-    to_port     = "65535"
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    description = "allow port SSH"
-    from_port   = "22"
-    to_port     = "22"
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-}
