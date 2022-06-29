@@ -4,6 +4,12 @@ variable "instance" {
   default     = ""
 }
 
+variable "ami" {
+  description = "AMI of instances"
+  type        = string
+  default     = ""
+}
+
 variable "aws_access_key" {
   description = "AWS access key"
   type        = string

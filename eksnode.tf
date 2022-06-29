@@ -58,11 +58,11 @@ resource "aws_eks_node_group" "nodes_general" {
     max_size     = 5
     min_size     = 3
   }
-  ami_type             = var.instance
+  ami_type             = var.ami
   capacity_type        = "ON_DEMAND"
   disk_size            = 20
   force_update_version = false
-  instance_types       = ["t3.small"]
+  instance_types       = var.instance
 
   labels = {
     role = "nodes-general"
